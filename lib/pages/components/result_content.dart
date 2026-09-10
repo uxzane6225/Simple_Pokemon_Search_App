@@ -13,13 +13,13 @@ class ResultContent extends StatelessWidget {
         Text(
           "$title: ",
           style: TextStyle(
-            fontSize: 18,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
         Text(
           content ?? "No Pokemon yet",
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: 20),
         ),
       ],
     );
