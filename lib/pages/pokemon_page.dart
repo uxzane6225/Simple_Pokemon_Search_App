@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_search_api/models/pokemon.dart';
+import 'package:pokemon_search_api/pages/components/result_content.dart';
 import 'package:pokemon_search_api/services/pokemon_service.dart';
 
 class PokemonPage extends StatefulWidget {
@@ -142,96 +143,12 @@ class _PokemonPageState extends State<PokemonPage> {
                             textAlign: TextAlign.left,
                           ),
           
-                          Row(
-                            children: [
-                              Text(
-                                "Pokemon ID: ",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                "${_pokemon?.id ?? "No Pokemon yet"}",
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "Name: ",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                _pokemon?.name ?? "No Pokemon Yet",
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "Base Experience: ",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                _pokemon?.base_experience.toString() ?? "No Pokemon Yet",
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "Height: ",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                "${_pokemon?.height ?? "No Pokemon Yet"}",
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "Order: ",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                "${_pokemon?.order ?? "No Pokemon Yet"}",
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "Weight: ",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                "${_pokemon?.weight ?? "No Pokemon Yet"}",
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
+                          ResultContent(title: "Pokemon ID", content: _pokemon?.id.toString()),
+                          ResultContent(title: "Name", content: _pokemon?.name),
+                          ResultContent(title: "Base Experience", content: _pokemon?.base_experience.toString()),
+                          ResultContent(title: "Height", content: _pokemon?.height.toString()),
+                          ResultContent(title: "Order", content: _pokemon?.order.toString()),
+                          ResultContent(title: "Weight", content: _pokemon?.weight.toString()),
                           SizedBox(height: 10),
                           Container(
                             padding: EdgeInsets.all(20),
