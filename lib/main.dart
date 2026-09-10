@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_search_api/pages/pokemon_page.dart';
+import 'package:pokemon_search_api/views/pokemon_page.dart';
 
 void main() {
   runApp(const MainApp());

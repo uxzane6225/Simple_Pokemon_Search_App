@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_search_api/models/pokemon.dart';
-import 'package:pokemon_search_api/pages/components/result_content.dart';
-import 'package:pokemon_search_api/pages/components/sprite_content.dart';
+import 'package:pokemon_search_api/views/components/result_content.dart';
+import 'package:pokemon_search_api/views/components/sprite_content.dart';
 import 'package:pokemon_search_api/services/pokemon_service.dart';
 
 class PokemonPage extends StatefulWidget {
