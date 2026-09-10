@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_search_api/models/pokemon.dart';
 import 'package:pokemon_search_api/pages/components/result_content.dart';
+import 'package:pokemon_search_api/pages/components/sprite_content.dart';
 import 'package:pokemon_search_api/services/pokemon_service.dart';
 
 class PokemonPage extends StatefulWidget {
@@ -150,29 +151,7 @@ class _PokemonPageState extends State<PokemonPage> {
                           ResultContent(title: "Order", content: _pokemon?.order.toString()),
                           ResultContent(title: "Weight", content: _pokemon?.weight.toString()),
                           SizedBox(height: 10),
-                          Container(
-                            padding: EdgeInsets.all(20),
-                            decoration: BoxDecoration(
-                              color: Colors.red,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Container(
-                              padding: EdgeInsets.all(20),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Center(
-                                child: Image.network(
-                                  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${_pokemon?.id}.png",
-                                  scale: 0.1,
-                                  errorBuilder: (context, error, stackTrace) {
-                                    return Text("No image yet");
-                                  },
-                                ),
-                              ),
-                            ),
-                          ),
+                          SpriteContent(id: _pokemon?.id),
                         ],
                       ),
                     ),
