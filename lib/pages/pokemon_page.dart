@@ -35,12 +35,12 @@ class _PokemonPageState extends State<PokemonPage> {
     }
   }
 
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   _fetchPokemon();
-  // }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _fetchPokemon();
+  }
 
   @override
   void dispose() {
@@ -88,10 +88,10 @@ class _PokemonPageState extends State<PokemonPage> {
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey,
-                          offset: Offset(0, 2),
-                          blurRadius: 10,
-                          spreadRadius: 0,
+                          color: Color(0xFFD3D3D3),
+                          offset: Offset(0, 1),
+                          blurRadius: 5,
+                          spreadRadius: 0.1,
                         ),
                       ],
                       borderRadius: BorderRadius.circular(10),
@@ -116,10 +116,10 @@ class _PokemonPageState extends State<PokemonPage> {
                       borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey,
-                          offset: Offset(0, 2),
-                          blurRadius: 10,
-                          spreadRadius: 0,
+                          color: Color(0xFFD3D3D3),
+                          offset: Offset(0, 0),
+                          blurRadius: 5,
+                          spreadRadius: 0.1,
                         ),
                       ],
                     ),
@@ -167,7 +167,7 @@ class _PokemonPageState extends State<PokemonPage> {
                                 ),
                               ),
                               Text(
-                                "${_pokemon?.name ?? "No Pokemon Yet"}",
+                                _pokemon?.name ?? "No Pokemon Yet",
                                 style: TextStyle(fontSize: 20),
                               ),
                             ],
@@ -182,7 +182,7 @@ class _PokemonPageState extends State<PokemonPage> {
                                 ),
                               ),
                               Text(
-                                "${_pokemon?.base_experience ?? "No Pokemon Yet"}",
+                                _pokemon?.base_experience.toString() ?? "No Pokemon Yet",
                                 style: TextStyle(fontSize: 20),
                               ),
                             ],
@@ -240,6 +240,7 @@ class _PokemonPageState extends State<PokemonPage> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Container(
+                              padding: EdgeInsets.all(20),
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(10),
