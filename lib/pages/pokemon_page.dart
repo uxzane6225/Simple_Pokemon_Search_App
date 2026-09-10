@@ -31,7 +31,7 @@ class _PokemonPageState extends State<PokemonPage> {
         _pokemon = pokemon;
       });
     } catch (e) {
-      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
     }
   }
 
@@ -145,7 +145,7 @@ class _PokemonPageState extends State<PokemonPage> {
                           Row(
                             children: [
                               Text(
-                                "Pokemon ID:",
+                                "Pokemon ID: ",
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
