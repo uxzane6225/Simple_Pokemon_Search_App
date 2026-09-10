@@ -17,12 +17,12 @@ class _PokemonPageState extends State<PokemonPage> {
   final _pokemonService = PokemonService();
   Pokemon? _pokemon;
 
-  _fetchPokemon() async {
+  void _fetchPokemon() async {
     String pokemonName = nameController.text.trim();
 
     if (pokemonName.isEmpty) {
-      return ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Field is Empty!")));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Field is Empty!")));
+      return;
     }
 
     try {
@@ -33,13 +33,13 @@ class _PokemonPageState extends State<PokemonPage> {
         _pokemon = pokemon;
       });
     } catch (e) {
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
     }
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _fetchPokemon();
   }
@@ -146,7 +146,7 @@ class _PokemonPageState extends State<PokemonPage> {
           
                           ResultContent(title: "Pokemon ID", content: _pokemon?.id.toString()),
                           ResultContent(title: "Name", content: _pokemon?.name),
-                          ResultContent(title: "Base Experience", content: _pokemon?.base_experience.toString()),
+                          ResultContent(title: "Base Experience", content: _pokemon?.baseExperience.toString()),
                           ResultContent(title: "Height", content: _pokemon?.height.toString()),
                           ResultContent(title: "Order", content: _pokemon?.order.toString()),
                           ResultContent(title: "Weight", content: _pokemon?.weight.toString()),
